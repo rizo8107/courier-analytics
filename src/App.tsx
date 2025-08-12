@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FileUpload } from './components/FileUpload';
 import { Dashboard } from './components/Dashboard';
 import { ProcessingProgress } from './components/ProcessingProgress';
@@ -140,7 +140,6 @@ function App() {
           </svg>
           <span>Upload New Data</span>
         </button>
-        <Dashboard shipments={shipments} />
         <Dashboard shipments={shipments} onUploadNewData={handleReset} />
       </div>
     );

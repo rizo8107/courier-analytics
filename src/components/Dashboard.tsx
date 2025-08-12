@@ -126,7 +126,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ shipments, onUploadNewData
             ].map(tab => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id as Tab)}
                 className={`flex items-center px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
                   activeTab === tab.id
                     ? `bg-gradient-to-r from-${tab.color}-500 to-${tab.color}-600 text-white shadow-lg transform scale-105`
@@ -702,7 +702,7 @@ const AnalyticsTab: React.FC<{ shipments: NormalizedShipment[] }> = ({ shipments
       acc[s.carrier].zones[s.zone].shipmentCount += 1;
       
       return acc;
-    }, {} as any);
+    }, {} as { [key: string]: any });
     
     Object.keys(carrierCharges).forEach(carrier => {
       const data = carrierCharges[carrier];
@@ -852,7 +852,7 @@ const TrendsTab: React.FC<{ shipments: NormalizedShipment[] }> = ({ shipments })
       acc[date].totalWeight += s.charged_weight_kg;
       if (s.flag_miscalculated) acc[date].disputes += 1;
       return acc;
-    }, {} as any);
+    }, {} as { [key: string]: any });
 
     return Object.values(trends).map((day: any) => ({
       ...day,
